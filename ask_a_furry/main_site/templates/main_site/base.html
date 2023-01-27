@@ -1,0 +1,31 @@
+{% load static %}
+<html>
+    <head>
+        <title>Ask-A-Furry</title>
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <div class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                Ask-A-Furry
+            </div>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a class="nav-link px-2 link-dark" href="/">Ask</a></li>
+                <li><a class="nav-link px-2 link-dark" href="/">Name</a></li>
+                <li><a class="nav-link px-2 link-dark" href="/">Settings</a></li>
+                <li><a class="nav-link px-2 link-dark" href="/">Log out</a></li>
+            </ul>
+        </header>
+        <main class="container">
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer class="container d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-top">
+        <p class="text-center text-muted">2023 Amon Studios</p>
+        </footer>
+    </body>
+</html>
+
