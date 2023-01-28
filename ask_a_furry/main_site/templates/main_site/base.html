@@ -8,23 +8,56 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <div class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                Ask-A-Furry
+        <header class="container d-flex align-items-center justify-content-between border-bottom">
+            <div class="d-flex flex-column col-1 m-2">
+                <a href="/"><img src="{% static 'main_site/logo.png' %}" class="img-fluid" alt="Ask-A-Furry-Logo"></a>
             </div>
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a class="nav-link px-2 link-dark" href="/">Ask</a></li>
-                <li><a class="nav-link px-2 link-dark" href="/">Name</a></li>
-                <li><a class="nav-link px-2 link-dark" href="/">Settings</a></li>
-                <li><a class="nav-link px-2 link-dark" href="/">Log out</a></li>
+            <div class="d-flex flex-column">
+                <p class="fs-1">Ask-A-Furry</p>
+            </div>
+            <div class="row height d-flex justify-content-center align-items-center">
+                <div class="form">
+                    <i class="fa fa-search"></i>
+                    {% csrf_token %}
+                    <input type="text" class="form-control form-input" placeholder="Поиск по сайту">
+                </div>
+            </div>
+            <ul class="d-flex flex-column list-group flex-md-row border-0 list-unstyled">
+                <li><a class="list-group-item border-0" href="/ask">Задать вопрос</a></li>
+                <li><a class="list-group-item border-0" href="/settings">Аккаунт</a></li>
+                <li><a class="list-group-item border-0" href="/settings">Настройки</a></li>
+                <li><a class="list-group-item border-0" href="/">Выход</a></li>
             </ul>
         </header>
         <main class="container">
-            {% block content %}
-            {% endblock %}
+            <div class="d-flex align-items-center">
+            <div class="container col-8 align-items-center">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="container col-3">
+                <div class="mt-2 mb-2 row d-flex align-items-center justify-content-between">
+                        <p class="fs-4 border-bottom">Популярные тэги</p>
+                        <div class="col d-flex align-items-center justify-content-around flex-wrap">
+                            {% for tag in best_tags %}
+                                <a class="m-1 d-flex fs-6" href="/">{{ tag }}</a>
+                            {% endfor %}
+                        </div>
+                </div>
+                <div class="mt-2 mb-2 row d-flex align-items-center justify-content-between">
+                        <p class="fs-4 border-bottom">Лучшие участники</p>
+                        <div class="col d-flex align-items-center justify-content-around flex-wrap">
+                            {% for member in best_members %}
+                                <a class="m-1 d-flex fs-6" href="/">{{ member }}</a>
+                            {% endfor %}
+                        </div>
+                </div>
+                </div>
+             </div>
+
         </main>
-        <footer class="container d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-top">
-        <p class="text-center text-muted">2023 Amon Studios</p>
+        <footer class="container d-flex align-items-center justify-content-center border-top">
+        <p class="d-flex flex-column">2023 Amon Studios</p>
         </footer>
     </body>
 </html>

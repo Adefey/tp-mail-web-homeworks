@@ -1,0 +1,47 @@
+{% extends 'main_site/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="mt-2 mb-2 row d-flex align-items-center justify-content-between">
+    <p class="fs-2 text-break">Тэг: {{ tag }}</p>
+</div>
+{% for item in items %}
+    <div class="mt-2 mb-2 row d-flex align-items-center justify-content-between border rounded">
+        <div class="d-flex flex-column col-2">
+            <img src="{% static 'main_site/logo.png' %}" class="img-fluid m-2" alt="User-Logo">
+            <div class="btn-group align-items-center justify-content-around m-2" role="group" aria-label="Like-dislike">
+                <button type="button" class="btn btn-danger btn-sm m-2">-</button>
+                <label>{{ item.rating }}</label>
+                <button type="button" class="btn btn-success btn-sm m-2">+</button>
+            </div>
+        </div>
+        <div class="d-flex flex-column col">
+            <div class="d-flex justify-content-between align-items-center border-bottom">
+                <a class="fs-4 d-flex" href="/question/{{ item.pk }}">{{ item.header }}</a>
+                <a class="fs-4 d-flex" href="/question/{{ item.pk }}">#{{ item.pk }}</a>
+            </div>
+            <p class="fs-5 border-bottom text-break">{{ item.full_text }}</p>
+                <div class="row d-flex align-items-center">
+                    <div class="col-3 d-flex align-items-center">
+                        <p class="fs-6">{{ item.author }}</p>
+                    </div>
+                    <div class="col d-flex align-items-center justify-content-around flex-wrap">
+                        <p class="m-1 d-flex fs-6">Тэги:</p>
+                        {% for tag in item.tags %}
+                            <a class="m-1 d-flex fs-6" href="/">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endfor %}
+<nav>
+    <ul class="pagination d-flex justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">В начало</a></li>
+        <li class="page-item"><a class="page-link" href="#">Предыдущая</a></li>
+        <li class="page-item"><a class="page-link" href="#">{{ cur_page_num }}</a></li>
+        <li class="page-item"><a class="page-link" href="#">Следующая</a></li>
+        <li class="page-item"><a class="page-link" href="#">В конец</a></li>
+    </ul>
+</nav>
+{% endblock %}

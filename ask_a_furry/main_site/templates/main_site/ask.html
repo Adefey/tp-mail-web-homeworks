@@ -1,0 +1,25 @@
+{% extends 'main_site/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="mt-2 mb-2 row d-flex align-items-center justify-content-between">
+    <p class="fs-4 align-items-center" >Добавить вопрос</p>
+
+    <div class="d-flex align-items-center justify-content-between">
+        <p class="d-flex col-2">Заголовок для вопроса:</p>
+        <input type="text" class="form-control form-input d-flex" placeholder="Заголовок"></input>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-between">
+        <p class="d-flex col-2">Текст вопроса:</p>
+        <textarea type="text" class="form-control form-input d-flex" rows="3" placeholder="Вопрос"></textarea>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-between">
+        <p class="d-flex col-2">Тэги через запятую:</p>
+         <input type="text" class="form-control form-input d-flex"  placeholder="Тэги"></input>
+    </div>
+
+    <button type="button" class="btn btn-primary btn-lg m-2">Ответить</button>
+</div>
+{% endblock %}

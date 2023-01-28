@@ -1,0 +1,46 @@
+{% extends 'main_site/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="mt-2 mb-2 row d-flex align-items-center justify-content-between">
+    <p class="fs-4 align-items-center" >Регистрация</p>
+
+    <div class="mt-2 d-flex align-items-center justify-content-between">
+        <p class="d-flex col-2">Логин:</p>
+        <input type="text" class="form-control form-input d-flex" placeholder="Логин"></input>
+    </div>
+
+    <div class="mt-2 d-flex align-items-center justify-content-between">
+        <p class="d-flex col-2">Электронная почта:</p>
+        <input type="text" class="form-control form-input d-flex"  placeholder="Электронная почта"></input>
+    </div>
+
+    <div class="mt-2 d-flex align-items-center justify-content-between">
+        <p class="d-flex col-2">Имя:</p>
+         <input type="text" class="form-control form-input d-flex"  placeholder="Имя"></input>
+    </div>
+
+    <div class="mt-2 d-flex align-items-center justify-content-between">
+        <p class="d-flex col-2">Фамилия:</p>
+         <input type="text" class="form-control form-input d-flex"  placeholder="Фамилия"></input>
+    </div>
+
+    <div class="mt-2 d-flex align-items-center justify-content-between">
+        <p class="d-flex col-2">Файл аватарки:</p>
+        <input type="text" class="form-control form-input d-flex"  placeholder="Файл аватарки"></input>
+        <button type="button" class="btn btn-primary btn-lg d-flex">Выбрать файл</button>
+    </div>
+
+    <div class="mt-2 d-flex align-items-center justify-content-between">
+        <p class="d-flex col-2">Пароль:</p>
+         <input type="password" class="form-control form-input d-flex"  placeholder=""></input>
+    </div>
+
+    <div class="mt-2 d-flex align-items-center justify-content-between">
+        <p class="d-flex col-2">Пароль еще раз:</p>
+         <input type="password" class="form-control form-input d-flex"  placeholder=""></input>
+    </div>
+
+    <button type="button" class="btn btn-primary btn-sm m-2">Сохранить</button>
+</div>
+{% endblock %}
